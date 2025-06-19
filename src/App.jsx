@@ -1,17 +1,15 @@
-import { Button } from 'react-bootstrap'
 import './App.css'
-import { AiFillAlert } from "react-icons/ai";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+import AppRoutes from './routes/AppRoutes';
 
 const App= ()=> {
-  toast.success("hello")
 
   return (
     <>
+   
+    <AppRoutes/>
 
-      <h2>Comming soon........</h2>
-      <Button>Click Me  <AiFillAlert/> </Button>
-      <ToastContainer/>
+    <ToastContainer/>
     </>
   )
 }
