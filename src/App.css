@@ -1,6 +1,10 @@
 .main{
     min-height: 85vh;
 }
+.user-main{
+    min-height: 85vh;
+    width: calc(100% - 200px);
+}
 .sign-page{
     min-height: 100vh;
     background-image: url(./assets/login-page.jpg);

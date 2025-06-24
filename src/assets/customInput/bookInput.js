@@ -1,0 +1,63 @@
+// "title": "The Alchemist",
+//   "year":2008,
+//   "author": "Paulo Coelho",
+//   "imgUrl": "https://example.com/images/the-alchemist.jpg",
+//   "isbn": "9780061122",
+//   "genre": "Fiction",
+//   "description": "something"
+
+export const bookInput = [
+  {
+    label: "Title",
+    type: "text",
+    name: "title",
+    required: true,
+    placeholder: "Book title",
+  },
+  {
+    label: "Year",
+    type: "number",
+    min: "1901",
+    max: new Date().getFullYear(),
+    name: "year",
+    required: true,
+    placeholder: "year",
+  },
+  {
+    label: "Author",
+    type: "text",
+    name: "author",
+    required: true,
+    placeholder: "Author name",
+  },
+  {
+    label: "Image Url",
+    type: "text",
+    name: "imgUrl",
+    required: true,
+    placeholder: "http://image-url/",
+  },
+  {
+    label: "ISBN",
+    type: "number",
+    name: "isbn",
+    required: true,
+    placeholder: "8765543534",
+  },
+  {
+    label: "Genre",
+    type: "text",
+    name: "genre",
+    required: true,
+    placeholder: "Genre",
+  },
+  {
+    label: "Description",
+    type: "text",
+    name: "description",
+    as: "textarea",
+    rows: 5,
+    required: true,
+    placeholder: "description",
+  },
+];

@@ -1,6 +1,6 @@
 import { apiProcessor } from "./api";
 
-const apiBaseUrl = "http://localhost:8001";
+const apiBaseUrl = "http://localhost:8000";
 const authApiEP = apiBaseUrl + "/api/v1/auth";
 
 export const signUpNewUserApi = async (payload) => {
@@ -79,6 +79,25 @@ export const logoutUserApi = async () => {
     method: "get",
     url: authApiEP + "/logout",
     isPrivateCall: true,
+  };
+  return apiProcessor(obj);
+};
+
+export const requestPassResetApi = async (payload) => {
+  const obj = {
+    method: "post",
+    url: authApiEP + "/otp",
+    payload,
+  };
+  return apiProcessor(obj);
+};
+
+export const resetPassApi = async (payload) => {
+  const obj = {
+    method: "post",
+    url: authApiEP + "/reset-password",
+    payload,
+    showToast: true,
   };
   return apiProcessor(obj);
 };

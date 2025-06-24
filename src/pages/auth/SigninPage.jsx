@@ -7,7 +7,7 @@ import { loginUserApi } from "../../services/authApi.js";
 import { fetchUserApi } from "../../features/user/userApi.js";
 import { autoLoginUser, fetchUserAction } from "../../features/user/userAction.js";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Spinner from 'react-bootstrap/Spinner';
 
 const initialState = { email: "", password: "" };
@@ -16,10 +16,13 @@ const SigninPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate()
   const showLoaderRef = useRef(true)
+  const location = useLocation();
+  console.log(location)
 
   const {user} = useSelector((state)=>state.userInfo)
+  const path = location?.state?.from ?? "/user";
 useEffect(()=>{
-  user?._id ? navigate("/user"): dispatch(autoLoginUser())
+  user?._id ? navigate(path): dispatch(autoLoginUser())
 
   if(sessionStorage.getItem("accessJWT") || localStorage.getItem("refreshJWT")){
     setTimeout(()=>{
@@ -82,9 +85,12 @@ if(showLoaderRef.current){
                 required
               />
               <div className="d-grid">
-                <Button type="submit">Submit</Button>
+                <Button type="submit">Sign In</Button>
               </div>
             </Form>
+            <div className="text-center my-3">
+              Forget Password? <a href="/forget-password">Reset Now</a>
+            </div>
           </Card.Body>
         </Card>
       </div>

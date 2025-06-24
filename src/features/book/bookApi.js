@@ -1,16 +1,17 @@
 import { apiProcessor } from "../../services/api";
 
 const apiBaseUrl = import.meta.env.VITE_BASE_API_URL;
-const userApiEP = apiBaseUrl + "/api/v1/users";
+const bookApiEP = apiBaseUrl + "/api/v1/books";
 
 //call api processor to fetch the user
-export const fetchUserApi = async () => {
+export const postNewBookApi = async (payload) => {
   try {
     const obj = {
-      method: "get",
-      url: userApiEP + "/profile",
-      showToast: false,
+      method: "post",
+      url: bookApiEP,
+      showToast: true,
       isPrivateCall: true,
+      payload,
     };
     const result = await apiProcessor(obj);
     console.log(result);

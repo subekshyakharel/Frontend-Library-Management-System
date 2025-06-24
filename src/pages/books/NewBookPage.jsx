@@ -1,8 +1,12 @@
 import React from 'react'
+import { NewBookForm } from '../../components/forms'
+
 
 const NewBookPage = () => {
   return (
-    <div>NewBookPage</div>
+    <>
+    <NewBookForm/>
+    </>
   )
 }
 
