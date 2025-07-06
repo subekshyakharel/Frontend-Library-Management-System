@@ -14,7 +14,6 @@ export const postNewBookApi = async (payload) => {
       payload,
     };
     const result = await apiProcessor(obj);
-    console.log(result);
     return result;
   } catch (error) {
     console.log(error.message);
@@ -23,4 +22,40 @@ export const postNewBookApi = async (payload) => {
       message: error.message,
     };
   }
+};
+
+//for admin
+export const adminFetchAllBookApi = async () => {
+  const obj = {
+    method: "get",
+    url: bookApiEP + "/admin",
+    isPrivateCall: true,
+  };
+  const result = await apiProcessor(obj);
+  return result;
+};
+
+//update book
+export const updateBookApi = async (payload) => {
+  const obj = {
+    method: "put",
+    url: bookApiEP,
+    isPrivateCall: true,
+    showToast: true,
+    payload,
+  };
+  const result = await apiProcessor(obj);
+  return result;
+};
+
+//delete book
+export const deleteBookApi = async (_id) => {
+  const obj = {
+    method: "delete",
+    url: bookApiEP + "/" + _id,
+    isPrivateCall: true,
+    showToast: true,
+  };
+  const result = await apiProcessor(obj);
+  return result;
 };

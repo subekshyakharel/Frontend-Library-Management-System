@@ -6,7 +6,7 @@
 //   "genre": "Fiction",
 //   "description": "something"
 
-export const bookInput = [
+export const newbookInput = [
   {
     label: "Title",
     type: "text",
@@ -30,13 +30,13 @@ export const bookInput = [
     required: true,
     placeholder: "Author name",
   },
-  {
-    label: "Image Url",
-    type: "text",
-    name: "imgUrl",
-    required: true,
-    placeholder: "http://image-url/",
-  },
+  // {
+  //   label: "Image Url",
+  //   type: "text",
+  //   name: "imgUrl",
+  //   required: true,
+  //   placeholder: "http://image-url/",
+  // },
   {
     label: "ISBN",
     type: "number",
@@ -59,5 +59,68 @@ export const bookInput = [
     rows: 5,
     required: true,
     placeholder: "description",
+  },
+];
+
+export const editBookInput = [
+  {
+    label: "Title",
+    type: "text",
+    name: "title",
+    required: true,
+  },
+  {
+    label: "Year",
+    type: "number",
+    min: "1901",
+    max: new Date().getFullYear(),
+    name: "year",
+    required: true,
+  },
+  // {
+  //   label: "Author",
+  //   type: "text",
+  //   name: "author",
+  //   required: true,
+  //   placeholder: "Author name",
+  // },
+  {
+    label: "Slug",
+    type: "text",
+    name: "slug",
+    disabled: true,
+  },
+  {
+    label: "Image Url",
+    type: "text",
+    name: "imgUrl",
+    required: true,
+  },
+  {
+    label: "ISBN",
+    type: "number",
+    disabled: true,
+    name: "isbn",
+    required: true,
+  },
+  {
+    label: "Genre",
+    type: "text",
+    name: "genre",
+    required: true,
+  },
+  {
+    label: "Expected Available Date",
+    type: "date",
+    name: "expectedAvailable",
+    required: true,
+  },
+  {
+    label: "Description",
+    type: "text",
+    name: "description",
+    as: "textarea",
+    rows: 5,
+    required: true,
   },
 ];

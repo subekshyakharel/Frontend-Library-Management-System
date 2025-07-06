@@ -38,6 +38,7 @@ const AppRoutes = () => {
         <Route index element={<DashboardPage/>}/>
         <Route path="book" element={<Book/>}/>
         <Route path="new-book" element={<NewBookPage/>}/>
+        <Route path="edit-book/:_id" element={<EditBookPage/>}/>
         <Route path="review" element={<ReviewsPage/>}/>
         <Route path="all" element={<UserPage/>}/>
         <Route path="borrow-history" element={<Borrow/>}/>
