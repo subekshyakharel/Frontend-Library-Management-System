@@ -11,20 +11,21 @@ import { AiFillDashboard } from "react-icons/ai";
 import { IoExitSharp } from "react-icons/io5";
 import { logoutUserApi } from "../../services/authApi";
 import { setUser } from "../../features/user/userSlice";
+import { Form, InputGroup } from "react-bootstrap";
+import { FaSearch } from "react-icons/fa";
 
 const Header = () => {
-  const {user} = useSelector((state)=>state.userInfo);
+  const { user } = useSelector((state) => state.userInfo);
   const dispatch = useDispatch();
-  const handleOnLogout = async()=>{
+  const handleOnLogout = async () => {
     //call api to logout from backend
-    logoutUserApi()
+    logoutUserApi();
 
     //logput from frontend
-    sessionStorage.removeItem('accessJWT');
-    localStorage.removeItem('refreshJWT');
-    dispatch(setUser({}))
-    
-  }
+    sessionStorage.removeItem("accessJWT");
+    localStorage.removeItem("refreshJWT");
+    dispatch(setUser({}));
+  };
   return (
     <Navbar expand="md" variant="dark" className="bg-dark">
       <Container>
@@ -35,32 +36,50 @@ const Header = () => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
-            <Link className="nav-link" to="/">
-              <IoMdHome /> Home
-            </Link>
-            {
-              user?._id ? (
+          <div className="w-100 d-flex justify-content-between flex-column flex-md-row">
+           <div></div>
+            <Form style={{ width: "40%" }}>
+              <InputGroup className="">
+                <Form.Control
+                  placeholder="Search book by name"
+                  aria-label="Search book by name"
+                  aria-describedby="basic-addon2"
+                />
+                <InputGroup.Text id="basic-addon2">
+                  <FaSearch />
+                </InputGroup.Text>
+              </InputGroup>
+            </Form>
+
+            <Nav className="">
+              <Link className="nav-link" to="/">
+                <IoMdHome /> Home
+              </Link>
+              {user?._id ? (
                 <>
-                <Link className="nav-link" to="/user">
-              <AiFillDashboard /> Dashboard
-            </Link>
-            <Link className="nav-link" to="/logout" onClick={handleOnLogout}>
-              <IoExitSharp /> LogOut
-            </Link>
-            </>
-              ):(
+                  <Link className="nav-link" to="/user">
+                    <AiFillDashboard /> Dashboard
+                  </Link>
+                  <Link
+                    className="nav-link"
+                    to="/logout"
+                    onClick={handleOnLogout}
+                  >
+                    <IoExitSharp /> LogOut
+                  </Link>
+                </>
+              ) : (
                 <>
-              <Link className="nav-link" to="/signup">
-              <FaUser /> SignUp
-            </Link>
-            <Link className="nav-link" to="/login">
-              <HiOutlineLogin /> Login
-            </Link>
-            </>)
-            }
-            
-          </Nav>
+                  <Link className="nav-link" to="/signup">
+                    <FaUser /> SignUp
+                  </Link>
+                  <Link className="nav-link" to="/login">
+                    <HiOutlineLogin /> Login
+                  </Link>
+                </>
+              )}
+            </Nav>
+          </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>

@@ -12,3 +12,35 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+/* carousel style  */
+.carousel{
+    height: 60vh;
+}
+.carousel img{
+    height: 60vh;
+    object-fit: cover;
+}
+.carousel-caption-bg{
+    background: rgba(128, 128, 128, 0.356);
+    backdrop-filter: blur(3px);
+}
+/*End carousel style  */
+
+/* breadcrum  */
+.breadcrumb .breadcrumb-item + .breadcrumb-item::before{
+content: ">";
+}
+
+/* review tab section  */
+.review-item{
+    background: rgb(223, 221, 221);
+    margin-bottom: 2rem;
+}
+.review-item .left div{
+    background: white;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid grey;
+}

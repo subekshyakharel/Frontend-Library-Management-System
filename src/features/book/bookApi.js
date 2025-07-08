@@ -35,6 +35,26 @@ export const adminFetchAllBookApi = async () => {
   return result;
 };
 
+// for fetching all  public book
+export const fetchAllPublicBookApi = async () => {
+  const obj = {
+    method: "get",
+    url: bookApiEP,
+  };
+  const result = await apiProcessor(obj);
+  return result;
+};
+
+// for fetching single  public book
+export const fetchSinglePublicBookApi = async (slug) => {
+  const obj = {
+    method: "get",
+    url: bookApiEP + "/public/" + slug,
+  };
+  const result = await apiProcessor(obj);
+  return result;
+};
+
 //update book
 export const updateBookApi = async (payload) => {
   const obj = {

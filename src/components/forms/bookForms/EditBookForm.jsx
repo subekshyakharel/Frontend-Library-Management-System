@@ -52,6 +52,7 @@ const EditBookForm = () => {
       __v,
       isbn,
       available,
+      averageRating, 
       ...rest
     } = form;
 
@@ -140,6 +141,7 @@ console.log(imageToDelete)
                   <Form.Check type="checkbox" value={img} onChange={handleOnImageToDelete} label="Delete"/>
                   <img
                     src={import.meta.env.VITE_BASE_API_URL + img?.slice(6)}
+                    // src={img}
                     alt="some img"
                     width="200px"
                     className="img-thumbnail"

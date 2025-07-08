@@ -27,6 +27,7 @@ const AppRoutes = () => {
         {/* Public page  */}
         <Route path="/" element={<DefaultLayout />}>
           <Route index element={<HomePage />} />
+          <Route path="/book/:slug" element={<BookLandingPage/>}/>
           <Route path="signup" element={<SignupPage />} /> 
           <Route path="activate-user" element={<VerifyUser />} /> 
           <Route path="login" element={<SigninPage />} />
