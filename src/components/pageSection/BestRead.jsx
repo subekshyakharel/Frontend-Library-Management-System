@@ -1,6 +1,6 @@
 import React from 'react'
 import SectionTitle from '../sectionTitle/SectionTitle'
-import CustomCard from '../customCard/CustomCard'
+import {CustomCard} from '../customCard/CustomCard'
 
 const BestRead = () => {
   return (

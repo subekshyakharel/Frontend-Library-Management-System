@@ -1,6 +1,6 @@
 import React from 'react'
 import SectionTitle from '../sectionTitle/SectionTitle'
-import CustomCard from '../customCard/CustomCard'
+import {CustomCard} from '../customCard/CustomCard.jsx'
 import { useSelector } from 'react-redux'
 
 const JustInSection = () => {
