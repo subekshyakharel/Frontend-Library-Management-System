@@ -8,6 +8,8 @@ import Spinner from "react-bootstrap/Spinner";
 
 import Star from "../../components/stars/star";
 import Review from "../../components/review/Review";
+import { setCart } from "../../features/cart/cartSlice";
+import { toast } from "react-toastify";
 
 const BookLandingPage = () => {
   const { slug } = useParams();
@@ -16,6 +18,7 @@ const BookLandingPage = () => {
   const [showUrl, setShowUrl] = useState(0);
 
   const { selectedBook } = useSelector((state) => state.bookInfo);
+  const { cart } = useSelector((state) => state.cartInfo);
 
   useEffect(() => {
     const fetchBook = async () => {
@@ -25,6 +28,13 @@ const BookLandingPage = () => {
     };
     fetchBook();
   }, [dispatch, slug]);
+
+  const handleOnCart = () => {
+    toast("Book is added in cart");
+    dispatch(setCart(selectedBook));
+  };
+
+  const isBookOnCart = cart.find((item) => item._id === selectedBook._id);
 
   return (
     <Container>
@@ -70,7 +80,7 @@ const BookLandingPage = () => {
                 <img
                   src={
                     import.meta.env.VITE_BASE_API_URL +
-                    selectedBook.imageList[showUrl].slice(6)
+                    selectedBook.imageList[showUrl]?.slice(6)
                   }
                   alt="book cover"
                   className="w-100 h-100 object-fit-contain img-fluid rounded"
@@ -80,7 +90,7 @@ const BookLandingPage = () => {
               <div className="d-flex overflow-auto gap-2 py-3">
                 {selectedBook.imageList?.map((url, i) => (
                   <img
-                    src={import.meta.env.VITE_BASE_API_URL + url.slice(6)}
+                    src={import.meta.env.VITE_BASE_API_URL + url?.slice(6)}
                     key={url}
                     width="80"
                     className="img-thumbnail"
@@ -104,13 +114,23 @@ const BookLandingPage = () => {
                     <Star avgRating={2} totalReviews={55} />
                   </div>
                   <div className="mb-3 text-wrap">
-                    {selectedBook.description.slice(0, 300)}...
+                    {selectedBook?.description?.slice(0, 300)}...
                   </div>
                 </div>
                 <div className="bottom">
                   <hr />
                   <div className="d-grid">
-                    <Button variant="dark">Add to Burrowing List</Button>
+                    <Button
+                      variant="dark"
+                      disabled={isBookOnCart || selectedBook.expectedAvailable}
+                      onClick={handleOnCart}
+                    >
+                      {selectedBook.expectedAvailable
+                        ? `Expected Available:  ${selectedBook.expectedAvailable.slice(0, 10)}`
+                        : isBookOnCart
+                        ? "Added to cart"
+                        : "Add to Burrowing List"}
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -119,7 +139,6 @@ const BookLandingPage = () => {
 
           <Row className="my-5">
             <Col className="p-2">
-            
               <div className=" p-4 rounded shadow-sm">
                 <h2 className="text-center">More Details</h2>
                 <Tabs
@@ -131,7 +150,7 @@ const BookLandingPage = () => {
                     {selectedBook.description}
                   </Tab>
                   <Tab eventKey="reviews" title="Reviews">
-                    <Review/>
+                    <Review />
                   </Tab>
                 </Tabs>
               </div>

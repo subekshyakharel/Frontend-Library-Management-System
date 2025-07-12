@@ -15,9 +15,12 @@ import { Form, InputGroup } from "react-bootstrap";
 import { FaSearch } from "react-icons/fa";
 import { SiBookstack } from "react-icons/si";
 import { useRef } from "react";
+import { BsCart4 } from "react-icons/bs";
+import { setAllBorrows, setMyBorrows } from "../../features/borrow/borrowSlice";
 
 const Header = () => {
   const { user } = useSelector((state) => state.userInfo);
+  const { cart } = useSelector((state) => state.cartInfo);
   const dispatch = useDispatch();
   const searchRef = useRef("")
   const navigate = useNavigate();
@@ -29,6 +32,9 @@ const Header = () => {
     sessionStorage.removeItem("accessJWT");
     localStorage.removeItem("refreshJWT");
     dispatch(setUser({}));
+     dispatch(setMyBorrows([]))
+    dispatch(setAllBorrows([]))
+   
   };
 
   const handleOnSearch =(e)=>{
@@ -95,6 +101,10 @@ const Header = () => {
                   </Link>
                 </>
               )}
+              <Link to="/cart" className="nav-link position-relative d-flex">
+              <div className="cart-count position-absolute">{cart.length}</div>
+              <BsCart4 className="fs-3" />
+              </Link>
             </Nav>
           </div>
         </Navbar.Collapse>
