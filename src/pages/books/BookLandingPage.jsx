@@ -6,7 +6,7 @@ import Breadcrumb from "react-bootstrap/Breadcrumb";
 import { fetchSinglePublicBookAction } from "../../features/book/bookAction";
 import Spinner from "react-bootstrap/Spinner";
 
-import Star from "../../components/stars/star";
+import Star from "../../components/stars/Star";
 import Review from "../../components/review/Review";
 import { setCart } from "../../features/cart/cartSlice";
 import { toast } from "react-toastify";
