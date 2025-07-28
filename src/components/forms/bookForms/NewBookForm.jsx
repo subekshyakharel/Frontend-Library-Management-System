@@ -4,13 +4,14 @@ import { newbookInput } from "../../../assets/customInput/bookInput";
 import useForm from "../../../hooks/useForm";
 import { postNewBookAction } from "../../../features/book/bookAction";
 import { IoArrowBackCircleOutline } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const initialState = {};
 const NewBookForm = () => {
   const { form, handleOnChange } = useForm(initialState);
   const [image, setImage]= useState();
+  const navigate = useNavigate();
 
   const handleOnImageSelect =(e)=>{
 
@@ -28,7 +29,7 @@ console.log(key, form[key])
     }
     formData.append("image", image)
 
-    postNewBookAction(formData)
+    postNewBookAction(formData, navigate)
   }
   return (
     <>

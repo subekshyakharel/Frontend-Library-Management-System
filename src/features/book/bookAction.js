@@ -6,9 +6,11 @@ import {
 } from "./bookApi";
 import { setbook, setPublicbook, setSelectedbook } from "./bookSlice";
 
-export const postNewBookAction = async (payload) => {
-  const book = await postNewBookApi(payload);
-  console.log(book);
+export const postNewBookAction = async (payload, navigate) => {
+  const { status, message } = await postNewBookApi(payload);
+  if (status === "success") {
+    navigate("/user/book");
+  }
 };
 export const adminFetchAllBookAction = () => async (dispatch) => {
   const { status, payload } = await adminFetchAllBookApi();

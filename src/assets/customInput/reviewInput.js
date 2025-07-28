@@ -1,0 +1,90 @@
+export const newReviewInput = [
+  {
+    label: "Title",
+    type: "text",
+    name: "title",
+    required: true,
+    placeholder: "Review title",
+  },
+  {
+    label: "Review Message",
+    type: "text",
+    name: "reviewMessage",
+    as: "textarea",
+    rows: 5,
+    required: true,
+    placeholder: "description",
+  },
+  {
+    label: "Rating",
+    type: "number",
+    min: 1,
+    max: 5,
+    name: "rating",
+    required: true,
+    placeholder: "rating",
+  },
+];
+
+// export const editBookInput = [
+//   {
+//     label: "Title",
+//     type: "text",
+//     name: "title",
+//     required: true,
+//   },
+//   {
+//     label: "Year",
+//     type: "number",
+//     min: "1901",
+//     max: new Date().getFullYear(),
+//     name: "year",
+//     required: true,
+//   },
+//   // {
+//   //   label: "Author",
+//   //   type: "text",
+//   //   name: "author",
+//   //   required: true,
+//   //   placeholder: "Author name",
+//   // },
+//   {
+//     label: "Slug",
+//     type: "text",
+//     name: "slug",
+//     disabled: true,
+//   },
+//   {
+//     label: "Image Url",
+//     type: "text",
+//     name: "imgUrl",
+//     required: true,
+//   },
+//   {
+//     label: "ISBN",
+//     type: "number",
+//     disabled: true,
+//     name: "isbn",
+//     required: true,
+//   },
+//   {
+//     label: "Genre",
+//     type: "text",
+//     name: "genre",
+//     required: true,
+//   },
+//   {
+//     label: "Expected Available Date",
+//     type: "date",
+//     name: "expectedAvailable",
+//     required: true,
+//   },
+//   {
+//     label: "Description",
+//     type: "text",
+//     name: "description",
+//     as: "textarea",
+//     rows: 5,
+//     required: true,
+//   },
+// ];

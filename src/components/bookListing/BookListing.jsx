@@ -6,7 +6,7 @@ import CustomPagination from '../customPagination/CustomPagination';
 const BookListing = ({bookList}) => {
       const [view, setView] = useState("card");
   const [active, setActive] = useState(1)
-  const booksperScreen = 4;
+  const booksperScreen = 8;
   const pages = Math.ceil(bookList.length / booksperScreen)
 //   let items = [];
 //   for (let number = 1; number <= pages; number++) {

@@ -41,8 +41,8 @@ const Cart = () => {
   }
   return (
     <Container>
-      <h2 className="py-3">My Burrowing List</h2>
-
+      <h2 className="py-3">My Cart List</h2>
+<hr />
       <div>
         <Table>
           <tbody>
@@ -63,7 +63,6 @@ const Cart = () => {
                   <Button
                     onClick={() => handleOnBookRemove(book._id)}
                     variant="link"
-                    a
                   >
                     Remove
                   </Button>

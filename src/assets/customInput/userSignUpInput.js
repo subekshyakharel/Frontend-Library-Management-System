@@ -25,12 +25,6 @@ export const userSignUpInput = [
     name: "phone",
   },
   {
-    label: "Role",
-    type: "text",
-    name: "role",
-    placeholder: "user/admin",
-  },
-  {
     label: "Password*",
     type: "password",
     name: "password",

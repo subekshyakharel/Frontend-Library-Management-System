@@ -63,7 +63,10 @@ const EditBookForm = () => {
     }
     images.map((image) => formData.append("images", image));
     imageToDelete.forEach((image) => formData.append("imageToDelete", image));
-    const result = await updateBookApi(formData);
+    const {status, message} = await updateBookApi(formData);
+    if(status=="success"){
+      navigate("/user/book")
+    }
   };
 
   const handleOnImageToDelete = (e)=>{
@@ -92,6 +95,7 @@ console.log(imageToDelete)
             <Form.Check // prettier-ignore
               name="status"
               type="switch"
+              checked={books.status =="active"? true : false}
               id="custom-switch"
               label={form.status?.toUpperCase() || ""}
               onChange={handleOnChange}

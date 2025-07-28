@@ -12,24 +12,24 @@ const CustomCarousel = () => {
         <Carousel.Caption className='carousel-caption-bg rounded p-2'>
           <h3>Explore our extensive collection</h3>
           <hr />
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <p>Dive into thousands of books across every genre — curated just for you.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img src={d} alt="Second slide"  className='d-block w-100'/>
         <Carousel.Caption className='carousel-caption-bg rounded p-2'>
-          <h3>Second slide label</h3>
+          <h3>Borrow Books in a Click</h3>
           <hr />
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p>Experience hassle-free borrowing, quick returns, and real-time updates.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img src={c} alt="Third slide"  className='d-block w-100' />
         <Carousel.Caption className='carousel-caption-bg rounded p-2'>
-          <h3>Third slide label</h3>
+          <h3>Track Your Reading Journey</h3>
           <hr />
           <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            View your borrow history, get personalized recommendations, and level up your reading habit.
           </p>
         </Carousel.Caption>
       </Carousel.Item>

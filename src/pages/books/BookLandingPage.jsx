@@ -19,6 +19,7 @@ const BookLandingPage = () => {
 
   const { selectedBook } = useSelector((state) => state.bookInfo);
   const { cart } = useSelector((state) => state.cartInfo);
+  const { reviews } = useSelector((state) => state.reviewInfo);
 
   useEffect(() => {
     const fetchBook = async () => {
@@ -36,6 +37,13 @@ const BookLandingPage = () => {
 
   const isBookOnCart = cart.find((item) => item._id === selectedBook._id);
 
+  //get specific review
+  const bookReview = reviews.filter(
+    (item) => item.bookId?._id === selectedBook?._id
+  );
+  console.log(bookReview);
+  const avgrating = bookReview.reduce((acc, r) => acc + r.rating, 0) / bookReview.length;
+    console.log(avgrating)
   return (
     <Container>
       {showSpinner && (
@@ -111,7 +119,7 @@ const BookLandingPage = () => {
                   </div>
                   <div className="mb-2 text-muted small">
                     <span>{selectedBook.genre}</span> |{" "}
-                    <Star avgRating={2} totalReviews={55} />
+                    <Star avgRating={avgrating} totalReviews={bookReview.length} />
                   </div>
                   <div className="mb-3 text-wrap">
                     {selectedBook?.description?.slice(0, 300)}...
@@ -122,11 +130,14 @@ const BookLandingPage = () => {
                   <div className="d-grid">
                     <Button
                       variant="dark"
-                      disabled={isBookOnCart || selectedBook.expectedAvailable}
+                      disabled={isBookOnCart || (selectedBook.expectedAvailable && !selectedBook.available )}
                       onClick={handleOnCart}
                     >
-                      {selectedBook.expectedAvailable
-                        ? `Expected Available:  ${selectedBook.expectedAvailable.slice(0, 10)}`
+                      {selectedBook.expectedAvailable && !selectedBook.available
+                        ? `Expected Available:  ${selectedBook.expectedAvailable.slice(
+                            0,
+                            10
+                          )}`
                         : isBookOnCart
                         ? "Added to cart"
                         : "Add to Burrowing List"}
@@ -150,7 +161,7 @@ const BookLandingPage = () => {
                     {selectedBook.description}
                   </Tab>
                   <Tab eventKey="reviews" title="Reviews">
-                    <Review />
+                    <Review reviewArg = {bookReview}/>
                   </Tab>
                 </Tabs>
               </div>

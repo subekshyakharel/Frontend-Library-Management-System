@@ -14,3 +14,15 @@ export const fetchAllBorrowApi = async ({ isAdmin }) => {
   const result = await apiProcessor(obj);
   return result;
 };
+
+// for users
+export const patchReturnBorrowApi = async (payload) => {
+  const obj = {
+    method: "patch",
+    url: borrowApiEP,
+    isPrivateCall: true,
+    payload,
+  };
+  const result = await apiProcessor(obj);
+  return result;
+};

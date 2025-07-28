@@ -37,17 +37,20 @@ const reviews = [
   },
 ];
 
-const Review = () => {
+const Review = ({reviewArg}) => {
   return (
     <>
-      {reviews.map((r, i) => (
+      {reviewArg.map((r, i) => (
         <div
           key={i}
           className=" border rounded p-3 shadow d-flex review-item gap-2"
         >
           <div className="left d-flex justify-content-center align-items-center">
             <div className="d-flex justify-content-center align-items-center fs-3 fw-bold">
-              Sk
+              {
+                r.userName.split(" ")[0][0].toUpperCase() +
+                r.userName.split(" ").at(-1)[0]
+              }
             </div>
           </div>
           <div className="right">
@@ -57,8 +60,8 @@ const Review = () => {
               <span> {formatDistanceToNow( new Date(r.createdAt), { addSuffix: true })}</span>
             </div>
 
-            <p>{r.details}</p>
-            <div className="text-end"> - {r.reviewedBy}</div>
+            <p>{r.reviewMessage}</p>
+            <div className="text-end"> - {r.userName}</div>
           </div>
         </div>
       ))}
