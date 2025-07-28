@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form, Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import Star from "../stars/star";
+import Star from "../stars/Star";
 import { updateReviewStatusAction } from "../../features/review/reviewAction";
 
 const ReviewTable = () => {
