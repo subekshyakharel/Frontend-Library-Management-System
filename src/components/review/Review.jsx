@@ -1,41 +1,7 @@
 import React from "react";
-import Star from "../stars/star";
-import { format, formatDistance, formatDistanceToNow, formatRelative, subDays } from 'date-fns'
+import Star from "../stars/Star";
+import {  formatDistanceToNow } from 'date-fns'
 
-const reviews = [
-  {
-    title: "This is awesome book.",
-    rating: 4.5,
-    details:
-      " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit atque in aliquid at voluptates, doloremque accusantium dignissimos iure unde reiciendis!",
-    reviewedBy: "Subekshya Kharel",
-    createdAt: "2024-9-10",
-  },
-  {
-    title: "This is awesome book.",
-    rating: 4.5,
-    details:
-      " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit atque in aliquid at voluptates, doloremque accusantium dignissimos iure unde reiciendis!",
-    reviewedBy: "Subekshya Kharel",
-    createdAt: "2025-6-10",
-  },
-  {
-    title: "This is awesome book.",
-    rating: 4.5,
-    details:
-      " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit atque in aliquid at voluptates, doloremque accusantium dignissimos iure unde reiciendis!",
-    reviewedBy: "Subekshya Kharel",
-    createdAt: "2024-9-10",
-  },
-  {
-    title: "This is awesome book.",
-    rating: 4.5,
-    details:
-      " Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit atque in aliquid at voluptates, doloremque accusantium dignissimos iure unde reiciendis!",
-    reviewedBy: "Subekshya Kharel",
-    createdAt: "2024-9-10",
-  },
-];
 
 const Review = ({reviewArg}) => {
   return (
